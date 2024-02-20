@@ -10,10 +10,13 @@ tasks:
     steps:
       - checkout
       - docker/build:
-          image: python:3.8-slim
+          image: pythoncicd
+          tag: latest
+          dockerfile: Dockerfile
+    - docker/push:
+      image: pythoncicd
           push: true
           tags: ["${CI_COMMIT_SHA}", "latest"]
-          dockerfile: Dockerfile
       - reports/html:
           dir: coverage
           index: index.html
