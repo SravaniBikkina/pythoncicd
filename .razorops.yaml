@@ -3,14 +3,14 @@ version: v2
 global:
   runner:
     container:
-      - image: python:3.8-slim
+      - image: pythoncicd
 
 tasks:
   build-image:
     steps:
       - checkout
       - docker/build:
-          image: pythoncicd
+          image: python:3.8-slim
           push: true
           tags: ["${CI_COMMIT_SHA}", "latest"]
           dockerfile: Dockerfile
