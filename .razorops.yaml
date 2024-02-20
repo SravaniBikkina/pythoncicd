@@ -6,7 +6,7 @@ global:
       - image: pythoncicd
 
 tasks:
-  build-image:
+ - build-image:
     steps:
       - checkout
       - docker/build:
