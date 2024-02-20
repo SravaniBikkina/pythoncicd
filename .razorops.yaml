@@ -4,10 +4,8 @@ global:
   runner:
     container:
       - image: pythoncicd
-
 tasks:
-  build-image:
-    steps:
+   steps:
       - checkout
       - docker/build:
           image: pythoncicd
