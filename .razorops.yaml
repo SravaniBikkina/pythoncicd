@@ -3,7 +3,7 @@ version: v2
 global:
   runner:
     container:
-      - image: pythoncicd
+      - image: python:3.8-slim
 
 tasks:
   build-image:
