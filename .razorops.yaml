@@ -14,9 +14,8 @@ tasks:
           dockerfile: Dockerfile
       - docker/push: 
           image: pythoncicd
-      - reports/html:
-          dir: coverage
-          index: index.html
+      - reports/html: 
+        dir: htmlcov
 
   deploy:
     when: branch == 'master'
