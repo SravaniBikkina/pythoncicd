@@ -4,16 +4,16 @@ global:
   runner:
     container:
       - image: pythoncicd
+
 tasks:
-   steps:
+  build-image:
+    steps:
       - checkout
       - docker/build:
           image: pythoncicd
-          tag: latest
           dockerfile: Dockerfile
-    - docker/push:
-      image: pythoncicd
-          push: true
+      - docker/push: 
+          image: pythoncicd
           tags: ["${CI_COMMIT_SHA}", "latest"]
       - reports/html:
           dir: coverage
