@@ -14,7 +14,6 @@ tasks:
           dockerfile: Dockerfile
       - docker/push: 
           image: pythoncicd
-          tags: ["${CI_COMMIT_SHA}", "latest"]
       - reports/html:
           dir: coverage
           index: index.html
