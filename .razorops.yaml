@@ -1,0 +1,19 @@
+version : v2
+global :
+  runner : 
+  container:
+    - image: pythoncicd
+  tasks:
+  build-image:
+    steps:
+    - checkout
+    - docker/build:
+      image : pythoncicd
+        push: true
+        tags: ["${CI_COMMIT_SHA}", "latest"]
+        dockerfile: Dockerfile
+   - reports/html:
+        dir: coverage
+        index: index.html
+    - deploy:
+    when: branch == 'master'
