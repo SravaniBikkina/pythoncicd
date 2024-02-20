@@ -8,6 +8,7 @@ global:
 tasks:
   build-image:
     steps:
+      - checkout
       - docker/build:
           image: pythoncicd
           push: true
