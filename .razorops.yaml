@@ -6,15 +6,15 @@ global:
       - image: pythoncicd
 
 tasks:
-   build-image:
+  build-image:
     steps:
       - checkout
       - docker/build:
           image: pythoncicd
+          push: true
+          tags: ["${CI_COMMIT_SHA}", "latest"]
           dockerfile: Dockerfile
-      - docker/push: 
-          image: pythoncicd
-     - reports/html:
+      - reports/html:
           dir: coverage
           index: index.html
 
