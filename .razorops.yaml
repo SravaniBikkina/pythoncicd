@@ -14,7 +14,8 @@ tasks:
           dockerfile: Dockerfile
       - docker/push: 
           image: pythoncicd
-      - reports/html: 
+     - reports/junit: test-reports/*.xml
+    - reports/html: 
         dir: htmlcov
 
   deploy:
