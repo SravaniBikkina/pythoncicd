@@ -10,7 +10,7 @@ tasks:
     steps:
       - checkout
       - docker/build:
-          image: pythoncicd
+          image: sravanibikkina / pythoncicd
           push: true
           tags: ["${CI_COMMIT_SHA}", "latest"]
           dockerfile: Dockerfile
