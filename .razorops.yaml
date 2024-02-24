@@ -3,24 +3,21 @@ version: v2
 global:
   runner:
     os_image: ubuntu
-    container:   
+  variables:
+    - RACK_ENV=test
 
 tasks:
-  build-image:
+  build-docker-image:
     steps:
       - checkout
       - docker/build:
           image: sravanibikkina/pythoncicd
-          push: true
-          tags: ["${CI_COMMIT_SHA}", "latest"]
           dockerfile: Dockerfile
-      - reports/html:
-          dir: coverage
-          index: index.html
+          context: .
 
-  deploy:
-    script:
-      - echo "Deploying to Kubernetes"
-      - kubectl config set-context ${KUBE_CONTEXT} # Set the Kubernetes context (replace with your context name)
-      - kubectl set image deployment/your-deployment-name your-container-name=sravanibikkina/pythoncicd:${CI_COMMIT_SHA} # Replace with your actual deployment and container names
-    when: branch == 'master'
+  run-docker-container:
+    steps:
+      - checkout
+      - docker/run:
+          image: sravanibikkina/pythoncicd
+          command: ["python", "app.py"]
