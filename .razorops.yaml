@@ -19,5 +19,5 @@ tasks:
     steps:
       - checkout
       - docker/run:
-          image: sravanibikkina/pythoncicd
+          image: pythoncicd
           command: ["python", "app.py"]
