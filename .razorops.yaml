@@ -15,9 +15,6 @@ tasks:
           dockerfile: Dockerfile
           context: .
 
-  run-docker-container:
-    steps:
-      - checkout
-      - docker/run:
-          image: pythoncicd
-          command: ["python", "app.py"]
+
+
+
