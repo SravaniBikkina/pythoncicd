@@ -14,10 +14,11 @@ tasks:
           image: sravanibikkina/pythoncicd:first
           dockerfile: Dockerfile
           context: .
-  Push-dockerimage-to-dockerhub:
-     command:
-       - sudo docker push sravanibikkina/pythoncicd:first
-       
+  push-docker-image-to-dockerhub:
+    steps:
+      - run:
+          name: Push Docker Image to Docker Hub
+          command: sudo docker push sravanibikkina/pythoncicd:first
 
 
 
