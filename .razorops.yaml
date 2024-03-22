@@ -14,6 +14,10 @@ tasks:
           image: sravanibikkina/pythoncicd
           dockerfile: Dockerfile
           context: .
+  Push-dockerimage-to-dockerhub:
+     command:
+       - docker push sravanibikkina/pythoncicd
+       
 
 
 
