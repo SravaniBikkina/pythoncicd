@@ -11,12 +11,12 @@ tasks:
     steps:
       - checkout
       - docker/build:
-          image: sravanibikkina/pythoncicd
+          image: sravanibikkina/pythoncicd:first
           dockerfile: Dockerfile
           context: .
   Push-dockerimage-to-dockerhub:
      command:
-       - docker push sravanibikkina/pythoncicd
+       - docker push sravanibikkina/pythoncicd:first
        
 
 
