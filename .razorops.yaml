@@ -16,7 +16,7 @@ tasks:
           context: .
   Push-dockerimage-to-dockerhub:
      command:
-       - docker push sravanibikkina/pythoncicd:first
+       - sudo docker push sravanibikkina/pythoncicd:first
        
 
 
